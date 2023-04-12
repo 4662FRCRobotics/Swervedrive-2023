@@ -21,6 +21,7 @@ import edu.wpi.first.math.util.Units;
 public final class Constants {
   public static final class CanIDConstants {
        // SPARK MAX CAN IDs
+       // roborio and powerhub are 0 and 1
     public static final int kFrontLeftDrivingCanId = 2;
     public static final int kRearLeftDrivingCanId = 4;
     public static final int kFrontRightDrivingCanId = 6;
