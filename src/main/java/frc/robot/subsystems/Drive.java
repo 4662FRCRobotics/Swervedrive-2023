@@ -45,7 +45,7 @@ public class Drive extends SubsystemBase {
 
   // The gyro sensor
   private final AHRS m_gyro = new AHRS();
-
+ 
   // Slew rate filter variables for controlling lateral acceleration
   private double m_currentRotation = 0.0;
   private double m_currentTranslationDir = 0.0;
@@ -68,6 +68,7 @@ public class Drive extends SubsystemBase {
 
   /** Creates a new DriveSubsystem. */
   public Drive() {
+  
   }
 
   @Override

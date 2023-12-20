@@ -43,6 +43,8 @@ public class SwerveCorner {private final CANSparkMax m_drivingSparkMax;
       m_drivingSparkMax.restoreFactoryDefaults();
       m_turningSparkMax.restoreFactoryDefaults();
   
+      m_drivingSparkMax.setSmartCurrentLimit(20);
+      m_turningSparkMax.setSmartCurrentLimit(15);
       // Setup encoders and PID controllers for the driving and turning SPARKS MAX.
       m_drivingEncoder = m_drivingSparkMax.getEncoder();
       m_turningEncoder = m_turningSparkMax.getAbsoluteEncoder(Type.kDutyCycle);

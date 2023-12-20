@@ -33,15 +33,18 @@ public class RobotContainer {
   // Replace with CommandPS4Controller or CommandJoystick if needed
   private final CommandGamepadX m_driverController = new CommandGamepadX(OperatorConstants.kDriverControllerPort);
 
-  /** The container for the robot. Contains subsystems, OI devices, and commands. */
+  /**
+   * The container for the robot. Contains subsystems, OI devices, and commands.
+   */
   public RobotContainer() {
     // Configure the trigger bindings
     m_drive.setDefaultCommand(
-      Commands.run(
-        ()-> m_drive.drive( 
-           -MathUtil.applyDeadband(m_driverController.getLeftY(), OperatorConstants.kDriveDeadband),
-         -MathUtil.applyDeadband(m_driverController.getLeftX(), OperatorConstants.kDriveDeadband),
-          -MathUtil.applyDeadband(m_driverController.getRightX(), OperatorConstants.kDriveDeadband), false, true)));
+        Commands.run(
+            () -> m_drive.drive(
+                -MathUtil.applyDeadband(m_driverController.getLeftY(), OperatorConstants.kDriveDeadband),
+                -MathUtil.applyDeadband(m_driverController.getLeftX(), OperatorConstants.kDriveDeadband),
+                -MathUtil.applyDeadband(m_driverController.getRightX(), OperatorConstants.kDriveDeadband), false,
+                true), m_drive));
     configureBindings();
   }
 
@@ -61,15 +64,15 @@ public class RobotContainer {
    */
   private void configureBindings() {
     // Schedule `ExampleCommand` when `exampleCondition` changes to `true`
-m_driverController
-.X()
-.whileTrue((new RunCommand(
-  () -> m_drive.setX(),
-  m_drive)));
+    m_driverController
+        .X()
+        .whileTrue((new RunCommand(
+            () -> m_drive.setX(),
+            m_drive)));
     // Schedule `exampleMethodCommand` when the Xbox controller's B button is
     // pressed,
     // cancelling on release.
-  
+
   }
 
   /**
