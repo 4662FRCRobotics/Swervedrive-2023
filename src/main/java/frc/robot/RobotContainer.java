@@ -41,9 +41,9 @@ public class RobotContainer {
     m_drive.setDefaultCommand(
         Commands.run(
             () -> m_drive.drive(
-                -MathUtil.applyDeadband(m_driverController.getLeftY(), OperatorConstants.kDriveDeadband),
-                -MathUtil.applyDeadband(m_driverController.getLeftX(), OperatorConstants.kDriveDeadband),
-                -MathUtil.applyDeadband(m_driverController.getRightX(), OperatorConstants.kDriveDeadband), false,
+                -MathUtil.applyDeadband(.5*m_driverController.getLeftX(), OperatorConstants.kDriveDeadband),
+                -MathUtil.applyDeadband(.5*m_driverController.getLeftY(), OperatorConstants.kDriveDeadband),
+                -MathUtil.applyDeadband(.3*m_driverController.getRightX(), OperatorConstants.kDriveDeadband), false,
                 true), m_drive));
     configureBindings();
   }

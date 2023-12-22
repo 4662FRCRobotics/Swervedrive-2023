@@ -42,7 +42,8 @@ public class SwerveCorner {private final CANSparkMax m_drivingSparkMax;
       // them. This is useful in case a SPARK MAX is swapped out.
       m_drivingSparkMax.restoreFactoryDefaults();
       m_turningSparkMax.restoreFactoryDefaults();
-  
+      m_drivingSparkMax.setOpenLoopRampRate(1);
+      m_turningSparkMax.setOpenLoopRampRate(1);
       m_drivingSparkMax.setSmartCurrentLimit(20);
       m_turningSparkMax.setSmartCurrentLimit(15);
       // Setup encoders and PID controllers for the driving and turning SPARKS MAX.
@@ -105,7 +106,7 @@ public class SwerveCorner {private final CANSparkMax m_drivingSparkMax;
       m_drivingSparkMax.burnFlash();
       m_turningSparkMax.burnFlash();
   
-      m_chassisAngularOffset = chassisAngularOffset;
+      m_chassisAngularOffset = chassisAngularOffset+90;
       m_desiredState.angle = new Rotation2d(m_turningEncoder.getPosition());
       m_drivingEncoder.setPosition(0);
     }
